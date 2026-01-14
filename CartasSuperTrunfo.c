@@ -1,15 +1,17 @@
 #include <stdio.h>
     
-    int main(){ 
-        int populacao1, populacao2, turisticos1, turisticos2; //variáveis entre linhas 4 e 6
+    int main(){
+        int populacao1, populacao2, turisticos1, turisticos2;
         float km21, km22, pib1, pib2;
+        float densidade1, densidade2, percapta1, percapta2;
         char estado1[30], estado2[30], codigocarta1[3], codigocarta2[3], cidade1[30], cidade2[30];
-
         
+        //Título do jogo
         printf("Super Trunfo - Cidades Brasileiras\n\n");
 
+        // Dados da primeira carta**************
         printf("--- Insira os dados da carta 1:\n\n");
-        //início da inserção dos dados da carta 1
+
         printf("Insira o nome do estado: \n");
         scanf("%s", &estado1);
         
@@ -31,7 +33,11 @@
         printf("Insira o número de pontos turísticos: \n");
         scanf("%d", &turisticos1);
 
-        //início da inserção dos dados da carta 2
+        // Cálculo da densidade populacional e PIB per capita da carta 1  
+        densidade1 = (float)populacao1 / km21;
+        percapta1 = (float)pib1 / populacao1;
+
+        // Dados da segunda carta**************
         printf("--- Insira os dados da carta 2:\n");
         printf("Insira o nome do estado: \n");
         scanf("%s", &estado2);
@@ -53,13 +59,14 @@
 
         printf("Insira o número de pontos turísticos: \n");
         scanf("%d", &turisticos2);
-    
-      //Resultado na tela das informações inseridas sobre as cartas 
-    printf("\nCarta 1:\nEstado: %s\nCódigo da Carta: %s\nCidade: %s\nPopulação: %d\nÁrea (km²): %.2f\nPIB: %.2f\nPontos Turísticos: %d\n\n", estado1, codigocarta1, cidade1, populacao1, km21, pib1, turisticos1);
-    printf("-----------------\n"); //espaçamento para organização
-    printf("\nCarta 2:\nEstado: %s\nCódigo da Carta: %s\nCidade: %s\nPopulação: %d\nÁrea (km²): %.2f\nPIB: %.2f\nPontos Turísticos: %d\n", estado2, codigocarta2, cidade2, populacao2, km22, pib2, turisticos2);
+
+        // Cálculo da densidade populacional e PIB per capita da carta 2
+        densidade2 = (float)populacao2 / km22;
+        percapta2 = (float)pib2 / populacao2;
+
+        // Exibição dos dados das cartas
+    printf("\nCarta 1:\nEstado: %s\nCódigo da Carta: %s\nCidade: %s\nPopulação: %d\nÁrea (km²): %.2f\nPIB: %.2f reais\nPontos Turísticos: %d\nDensidade Populaciona: %.2f hab/km²\nPIB per Capta: %.2f reais\n\n", estado1, codigocarta1, cidade1, populacao1, km21, pib1, turisticos1, densidade1, percapta1);
+    printf("\nCarta 2:\nEstado: %s\nCódigo da Carta: %s\nCidade: %s\nPopulação: %d\nÁrea (km²): %.2f\nPIB: %.2f reais\nPontos Turísticos: %d\nDensidade Populacional: %.2f hab/km²\nPIB per Capta: %.2f reais\n\n", estado2, codigocarta2, cidade2, populacao2, km22, pib2, turisticos2, densidade2, percapta2);
 return 0;
-
-
 
     }
